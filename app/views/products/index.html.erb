@@ -9,7 +9,8 @@
 
 	<div class="panel-body">
 		<span class="col-xs-3">
-		<img class="img-rounded img-responsive pull-left txn-product-image" src="<%= product.image_url %>" />
+		<div class="img-rounded img-responsive pull-left txn-product-image">
+			<%=  image_tag product.avatar.url(:medium) %></div>
 		</span>
 	
 		<div class="col-xs-6 txn-product-info">

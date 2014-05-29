@@ -1,16 +1,28 @@
 <h1>product show page!</h1>
 
-<div>
-  <div><%= @product.name %></div>
-  <div><%= @product.description %></div>
-  <div>$<%= @product.price %>.00</div>
-  <div><%=  image_tag @product.avatar.url(:medium) %></div>
-  <div><button type="button" class = "btn btn-warning" id="edit">Edit</button></div>
-  <div><%= button_to "Buy from #{@product.seller.first_name}", purchase_path(@product), data: {confirm: "Please confirm you want to buy this from #{@product.name} from #{@product.seller.first_name}. Once the seller accepts, you will be charged via Venmo."}, method: :post, class: "btn btn-warning" %></div>
-</div>
+<div class="panel panel-success user-txn">
+  
+  <div class="panel-heading">
+    <h4><span><%= @product.name %></span>
+    <span class="pull-right">$<%= @product.price %></span></h4>
+  </div>
 
+  <div class="panel-body">
+    <span class="col-xs-3">
+      <div class="img-rounded img-responsive pull-left txn-product-image"><%=  image_tag @product.avatar.url(:medium) %>
+      </div>
+    </span>
+  
+    <div class="col-xs-6 txn-product-info">
+      <p><%= @product.description %></p>
+    </div>
+    <div>
+      <button type="button" class = "btn btn-warning" id="edit">Edit</button>
+    </div>
+</div>  
 
-<div class="field">
+<div class="panel panel-success user-txn">
+  <div class="field">
   <%= form_for(@product) do |f| %>
 
   <%= f.label :name %>
@@ -28,3 +40,16 @@
   <%= f.submit %>
   <% end %>
 </div>
+
+</div> 
+
+<!-- <div>
+  <div><%#= @product.name %></div>
+  <div><%#= @product.description %></div>
+  <div>$<%#= @product.price %>.00</div>
+  <div><%#=  image_tag @product.avatar.url(:medium) %></div>
+  <div><button type="button" class = "btn btn-warning" id="edit">Edit</button></div>
+  <div><%#= button_to "Buy from #{@product.seller.first_name}", purchase_path(@product), data: {confirm: "Please confirm you want to buy this from #{@product.name} from #{@product.seller.first_name}. Once the seller accepts, you will be charged via Venmo."}, method: :post, class: "btn btn-warning" %></div>
+</div> -->
+
+
